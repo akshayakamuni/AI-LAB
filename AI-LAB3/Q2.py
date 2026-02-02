@@ -1,23 +1,17 @@
 
 
 def level_crossing_agent(inbound, outbound, obstacle, emergency):
-
-    
     if emergency == "Active":
         return ("Lower Gate", "Red Signal", "Hooter On")
 
-    
     if (inbound == "TrainDetected" or outbound == "TrainDetected") and obstacle == "Blocked":
         return ("Lower Gate", "Red Signal", "Hooter On")
 
-    
     if (inbound == "TrainDetected" or outbound == "TrainDetected") and obstacle == "Clear":
         return ("Lower Gate", "Green Signal", "Hooter On")
 
-    
     if inbound == "NoTrain" and outbound == "NoTrain" and obstacle == "Clear":
         return ("Raise Gate", "Green Signal", "Hooter Off")
-
     return ("Hold State", "Hold Signal", "Hooter Off")
 
 
