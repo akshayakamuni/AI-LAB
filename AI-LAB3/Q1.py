@@ -23,7 +23,12 @@ def Simple_Reflex_Vacuum_agent(location, status):
     if status == "Dirty":
         return "Suck"
     else:
-        return random.choice(["MoveLeft", "MoveRight"])
+        if location == 'B':
+           return random.choice(["MoveLeft", "MoveRight"])
+        elif location == 'A':
+            return "MoveRight"
+        elif location == 'C':
+            return "MoveLeft"
 
 
 for step in range(steps):
@@ -76,7 +81,7 @@ print("\nFinal Environment:", environment)
 print("Final Performance Score:", score)
 
 
-#without randomization
+# # without randomization
 # rooms = ["A", "B", "C"]
 
 
@@ -99,7 +104,7 @@ print("Final Performance Score:", score)
 #     ("C", "Dirty"): "Suck",
 
 #     ("A", "Clean"): "MoveRight",
-#     ("B", "Clean"): "MoveRight",
+#     ("B", "Clean"): random.choice(["MoveRight","MoveLeft"]),
 #     ("C", "Clean"): "MoveLeft"
 # }
 
