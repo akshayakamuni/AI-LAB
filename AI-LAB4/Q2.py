@@ -29,7 +29,7 @@ def uniform_cost_search(grid, start, goal):
     pq = PriorityQueue()
     pq.push(start, 0)
 
-    visited = {start: 0}
+    reached = {start: 0}
     parent = {}
 
     while not pq.is_empty():
@@ -56,8 +56,8 @@ def uniform_cost_search(grid, start, goal):
                 new_cost = cost + 1
                 neighbor = (nx, ny)
 
-                if neighbor not in visited or new_cost < visited[neighbor]:
-                    visited[neighbor] = new_cost
+                if neighbor not in reached or new_cost < reached[neighbor]:
+                    reached[neighbor] = new_cost
                     parent[neighbor] = current
                     pq.push(neighbor, new_cost)
 
@@ -65,11 +65,15 @@ def uniform_cost_search(grid, start, goal):
 
 
 grid = [
-    [0,0,1,0,0],
-    [1,0,1,0,1],
-    [0,0,0,0,0],
-    [0,1,1,1,0],
-    [0,0,0,1,0]
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,0,0,0,0,0,0,1,0,0,0,0,0,1],
+    [1,0,1,1,1,0,0,1,0,1,1,1,0,1],
+    [1,0,1,0,0,0,0,0,0,0,0,1,0,1],
+    [1,0,1,0,1,1,1,1,1,1,0,1,0,1],
+    [1,0,0,0,0,0,0,0,0,1,0,0,0,1],
+    [1,1,1,1,1,1,1,1,0,1,1,1,0,1],
+    [1,0,0,0,0,0,0,1,0,0,0,0,0,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ]
 
 start = (0,0)
