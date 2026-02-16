@@ -1,4 +1,3 @@
-# No predefined library imports
 
 MOVES = [(1,0),(2,0),(0,1),(0,2),(1,1)]
 
@@ -17,11 +16,11 @@ def successors(state):
         dg = move[0]
         db = move[1]
 
-        if boat == 0:   # Boat on left side
+        if boat == 0:   
             ng = g - dg
             nb = b - db
             nb_side = 1
-        else:           # Boat on right side
+        else:         
             ng = g + dg
             nb = b + db
             nb_side = 0
