@@ -40,6 +40,8 @@ def greedy_best_first_search(graph, h, start, goal):
         for i in range(1, len(queue)):
             if h[queue[i][0]] < h[queue[min_index][0]]:
                 min_index = i
+        print("Current Queue:", [node[0] for node in queue], "Heuristics:", [h[node[0]] for node in queue])
+        print("Selected Node:", queue[min_index][0], "with Heuristic:", h[queue[min_index][0]])
         current, path, cost = queue.pop(min_index)
 
         if current not in visited:
@@ -55,6 +57,8 @@ def greedy_best_first_search(graph, h, start, goal):
                 queue.append((neighbour, path + [neighbour], cost + weight))
 
     return None, float('inf'), explored
+
+
 
 
 def a_star_search(graph, h, start, goal):
@@ -75,6 +79,8 @@ def a_star_search(graph, h, start, goal):
 
             if f_i < f_min:
                 min_index = i
+        print("Current Open List:", [node[0] for node in open_list], "f(n):", [g_cost[node[0]] + h[node[0]] for node in open_list])
+        print("Selected Node:", open_list[min_index][0],"with g(n):", g_cost[open_list[min_index][0]]," h(n):", h[open_list[min_index][0]], " f(n):", g_cost[open_list[min_index][0]] + h[open_list[min_index][0]])
 
         current, path, current_g = open_list.pop(min_index)
 
@@ -98,6 +104,8 @@ greddy_path, greedy_cost, explored = greedy_best_first_search(graph, h, "Chicago
 print("Greedy Best-First Search Path:", greddy_path)
 print("Greedy Best-First Search Cost:", greedy_cost)
 print("Explored Nodes:", explored)
+
+print("\n------------a-star---------------------")
 
 a_star_path, a_star_cost, explored = a_star_search(graph, h, "Chicago", "Boston")
 print("A* Search Path:", a_star_path)
