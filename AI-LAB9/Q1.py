@@ -106,4 +106,4 @@ def play():
             break
 
 play()
-print("Nodes explored:", nodes_explored)
+print("Nodes explored:", nodes_explored)   
