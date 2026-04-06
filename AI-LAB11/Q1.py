@@ -1,5 +1,5 @@
 
-# Districts (excluding Diu, Rann of Kuchchh, Little Rann of Kuchchh)
+# Districts 
 districts = [
     "Kuchchh", "Banaskantha", "Patan", "Mehsana", "Sabarkantha",
     "Gandhi Nagar", "Ahmedabad", "Surendranagar", "Kheda", "Anand",
@@ -8,7 +8,7 @@ districts = [
     "Narmada", "Surat", "Dangs", "Navsari", "Valsad"
 ]
 
-# Adjacency list (undirected edges)
+# Adjacency list 
 adjacency = {
     "Kuchchh":       ["Banaskantha", "Patan", "Surendranagar", "Rajkot"],
     "Banaskantha":   ["Kuchchh", "Patan", "Mehsana", "Sabarkantha"],
@@ -51,7 +51,7 @@ def backtrack(assignment, districts):
     if len(assignment) == len(districts):
         return assignment  # All districts colored — solution found
 
-    # Pick the next unassigned district (MRV heuristic optional)
+    # Pick the next unassigned district 
     unassigned = [d for d in districts if d not in assignment]
     district = unassigned[0]
 
